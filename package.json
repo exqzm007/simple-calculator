@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:ts": "npx ts-node ./src",
     "lint": "npx eslint --ext .js,.ts --fix ./",
+    "watch": "webpack --watch",
+    "build": "webpack --mode=production",
     "prepare": "husky install"
   },
   "repository": {
@@ -20,14 +23,22 @@
   },
   "homepage": "https://github.com/exqzm007/simple-calculator#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
+    "babel-loader": "^8.2.3",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-webpack-plugin": "^3.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "prettier": "2.5.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

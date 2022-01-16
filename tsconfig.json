@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
-    // "lib": [],
+    "module": "CommonJS",
+    "lib": ["es2015"],
+    "outDir": "./dist/",
     "allowJs": true,
     "sourceMap": true,
-    "isolatedModules": true,
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -17,5 +17,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["node_modules", "./dist"]
 }
