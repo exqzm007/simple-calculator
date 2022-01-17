@@ -7,7 +7,7 @@ export type OperatorHandler = (
 ) => number;
 export type UnaryOperatorHandler = (a: number | string) => number;
 
-export function convertOperators(
+export function convertOperands(
   a: number | string,
   b: number | string
 ): [number, number] {
@@ -15,22 +15,22 @@ export function convertOperators(
   const hasUnaryB = hasUnaryOperator(String(b));
 
   if (hasUnaryA) {
-    if (isNaN(+hasUnaryA.number)) {
+    if (isNaN(+hasUnaryA.value)) {
       throw new TypeError("Argument is not a valid number");
     }
     a = +(operators[hasUnaryA.operator].handler as UnaryOperatorHandler)(
-      hasUnaryA.number
+      hasUnaryA.value
     );
   } else {
     a = Number(a);
   }
 
   if (hasUnaryB) {
-    if (isNaN(+hasUnaryB.number)) {
+    if (isNaN(+hasUnaryB.value)) {
       throw new TypeError("Argument is not a valid number");
     }
     b = +(operators[hasUnaryB.operator].handler as UnaryOperatorHandler)(
-      hasUnaryB.number
+      hasUnaryB.value
     );
   } else {
     b = Number(b);
@@ -43,27 +43,27 @@ export function convertOperators(
 }
 
 export const mul: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a * b;
 };
 
 export const div: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a / b;
 };
 
 export const add: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a + b;
 };
 
 export const sub: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a - b;
 };
 
 export const pow: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return Math.pow(a, b);
 };
 

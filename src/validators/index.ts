@@ -106,7 +106,7 @@ export const hasUnaryOperator = (a: string) => {
     const numberToCalc = a.substring(withUnary.length);
     return {
       operator: withUnary,
-      number: numberToCalc,
+      value: numberToCalc,
     };
   } else {
     return false;
