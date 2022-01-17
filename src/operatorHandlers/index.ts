@@ -15,9 +15,6 @@ export function convertOperands(
   const hasUnaryB = hasUnaryOperator(String(b));
 
   if (hasUnaryA) {
-    if (isNaN(+hasUnaryA.value)) {
-      throw new TypeError("Argument is not a valid number");
-    }
     a = +(operators[hasUnaryA.operator].handler as UnaryOperatorHandler)(
       hasUnaryA.value
     );
@@ -26,9 +23,6 @@ export function convertOperands(
   }
 
   if (hasUnaryB) {
-    if (isNaN(+hasUnaryB.value)) {
-      throw new TypeError("Argument is not a valid number");
-    }
     b = +(operators[hasUnaryB.operator].handler as UnaryOperatorHandler)(
       hasUnaryB.value
     );
