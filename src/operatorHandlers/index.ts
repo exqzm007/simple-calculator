@@ -7,7 +7,7 @@ export type OperatorHandler = (
 ) => number;
 export type UnaryOperatorHandler = (a: number | string) => number;
 
-export function convertOperators(
+export function convertOperands(
   a: number | string,
   b: number | string
 ): [number, number] {
@@ -43,27 +43,27 @@ export function convertOperators(
 }
 
 export const mul: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a * b;
 };
 
 export const div: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a / b;
 };
 
 export const add: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a + b;
 };
 
 export const sub: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return a - b;
 };
 
 export const pow: OperatorHandler = (a, b) => {
-  [a, b] = convertOperators(a, b);
+  [a, b] = convertOperands(a, b);
   return Math.pow(a, b);
 };
 
