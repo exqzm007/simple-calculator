@@ -1,5 +1,4 @@
 import { getSuccessText, getErrorText } from "./formatter";
-// import { getFirstPriorityOperators, getSecondPriorityOperators, getUnaryOperators } from "./getOperatorsByPriority";
 
 describe("Test text formatters", () => {
   test("To return Result: 10", () => {
