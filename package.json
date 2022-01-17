@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "start:ts": "npx ts-node ./src",
+    "start:js": "yarn build && node ./dist/index.js",
     "lint": "npx eslint --ext .js,.ts --fix ./",
-    "watch": "webpack --watch",
     "build": "webpack --mode=production",
     "prepare": "husky install"
   },

@@ -43,7 +43,7 @@ export const calcByPriority = (
   const priorityValidator = getPriorityValidator(priority);
   const priorityOperators = getPriorityOperators(priority);
 
-  let simplifiedEquation: Array<string> = [...parsedEquation];
+  const simplifiedEquation: Array<string> = [...parsedEquation];
 
   if (priorityValidator(simplifiedEquation)) {
     for (let i = 0; i < simplifiedEquation.length - 1; i++) {
