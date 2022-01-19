@@ -1,4 +1,6 @@
 import { createInterface } from "readline";
+import { processEquation } from "./engine";
+import { getSuccessText } from "./utils/formatter";
 
 const rl = createInterface({
   input: process.stdin,
@@ -7,9 +9,11 @@ const rl = createInterface({
 
 const question = (): Promise<null> =>
   new Promise((resolve) => {
-    rl.question("> ", (answer: string) => {
-      console.log(answer);
-
+    rl.question("> ", (equation: string) => {
+      const answer = processEquation(equation);
+      if (answer) {
+        console.log(getSuccessText(answer));
+      }
       resolve(null);
     });
   });
